@@ -1,0 +1,9 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+<div class="d-grid align-items-center justify-content-center">
+    <h2 class="text-center">Please add to cart first.</h2>
+    <button class="btn btn-primary" onclick="history.back()">Add to cart</button>
+</div>
+{% endblock main-content %}

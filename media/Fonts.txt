@@ -1,0 +1,5 @@
+Fonts used in this design:
+
+Font: Red Hat Display
+Author: MCKL
+Url: https://fonts.google.com/specimen/Red+Hat+Display

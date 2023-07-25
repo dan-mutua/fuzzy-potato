@@ -1,0 +1,51 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+ <h3>Welcome <span class="text-capitalize">{{request.user}}</span></h3>
+  <div class="col-sm-2 border-end">
+   <ul class="list-unstyled">
+    <li class="d-grid"><a href="{% url 'orders' %}" class="btn btn-primary">Orders</a></li>
+   </ul>
+  </div>
+  <div class="col-sm-9 offset-sm-1">
+    {% for op in order_palced %}
+   <div class="row shadow-sm bm-3">
+    <div class="col-sm-2">
+        <img src="{{op.product.product_image.url}}" alt="" class="image-fluid" height="150" width="150">
+    </div>
+    <div class="col-sm-5 mx-3 pt-3">
+        <p>Product:{{op.product.title}}</p>
+        <p>Quantity:{{op.quatity}}</p>
+        <p>Price:{{op.total_cost}}</p>
+    </div>
+    <div class="col-sm-3 fw-bold">
+        <p>Order status: {{op.status}}</p>
+        {% if op.status == 'Pending' %}
+        <div class="progress">
+            0%<div class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        {% endif %}
+        {% if op.status == 'Accetped' %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
+        </div>
+        {% endif %}
+        
+        {% if op.status == 'Delivered' %}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+        </div>
+        {% endif %}
+
+    </div>
+    
+   </div>
+   <hr>
+   {% endfor%}
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
