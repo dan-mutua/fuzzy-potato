@@ -91,7 +91,7 @@
 
 <!-- 1st Product Slider -->
 <div class="m-3 ">
-  <h2 class="categories text-center"><span class="px-2" id="catag3">Finance</span></h2>
+  <h2 class="categories text-center"><span class="px-2" id="catag3">Finance Books</span></h2>
   <!-- Slider 1 -->
  <div class="card-group" style="margin-bottom: 10px;">
   {% for f in finance %}
@@ -112,18 +112,20 @@
 
 <!-- 2nd Product Slider -->
 <div class="m-3">
-  <h2 class="categories text-center"><span class="px-2" id="catag4">Mindfulness</span></h2>
+  <h2 class="categories text-center"><span class="px-2" id="catag4">Mindfulness Books</span></h2>
   <!-- Slider 2 -->
   <div class="owl-carousel" id="slider3">
-    {% for m in mindfulness %}
-    <a href="{% url 'product-detail' m.id %}" class="text-body text-decoration-none">
-      <div class="item border py-3 px-2 bg-black">
-        <img src="{{ m.product_image.url }}" alt="" height="200px">
-        <span class="fw-bold">{{ m.title }}</span><br>
-        <span class="fs-5">{{ m.selling_price }}</span>
-      </div>
-    </a>
-    {% endfor %}
+  {% for book in mindfulness %}
+        <div class="card" style="width: 18rem; margin-right: 10px;">
+          <a href="{% url 'product-detail' book.id %}" class="text-body text-decoration-none">
+            <img src="{{ book.product_image.url }}" class="card-img-top" alt="" height="200px" width="200px">
+            <div class="card-body">
+              <h5 class="card-title">{{ book.title }}</h5>
+              <p class="card-text">{{ book.selling_price }}</p>
+            </div>
+          </a>
+        </div>
+  {% endfor %}
   </div>
 </div>
 <!-- End 2nd Product Slider -->

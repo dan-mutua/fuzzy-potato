@@ -184,12 +184,12 @@ def orders(request):
 def mindfulnessBooks(request):
     mindfulness = Product.objects.filter(category='mindfulness')
     context={'mindfulness':mindfulness}
-    return render(request, 'app/laptop.html',context)
+    return render(request, 'app/mindfulness.html',context)
 
 def financebooks(request):
     finance= Product.objects.filter(category='Finance')
     context={'finance':finance}
-    return render(request, 'app/bottomwear.html',context)
+    return render(request, 'app/finance.html',context)
 
 class CustomerRegistrationView(View):
     def get(self,request):
